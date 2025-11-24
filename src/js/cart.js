@@ -66,13 +66,13 @@ function cartItemTemplate(item) {
       <h2 class="card__name">${item.Name}</h2>
     </a>
 
-    <div class="cart-card__color-wrapper">
-      <p class="cart-card__color">
+    <div class="product-color-info">
+      <p class="pcolor-name">
         Color: <strong>${selectedColor.name}</strong>
       </p>
 
       <img 
-        class="cart-color-swatch"
+        class="color-image-product"
         src="${selectedColor.preview}"
         alt="${selectedColor.name}"
       />
