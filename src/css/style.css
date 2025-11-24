@@ -259,7 +259,6 @@ button {
 
 /* colors options */
 
-/* Swatches en la página de producto */
 #colorOptions {
     display: flex;
     gap: 10px;
@@ -269,9 +268,9 @@ button {
 .color-swatch {
     width: 40px;
     height: 40px;
-    border-radius: 6px;
+    border-radius: 2px;
     cursor: pointer;
-    object-fit: cover;   /* evita distorsión */
+    object-fit: cover;
     border: 2px solid transparent;
     transition: all 0.2s ease;
 }
@@ -286,20 +285,6 @@ button {
     transform: scale(1.1);
 }
 
-/* Estilos del carrito */
-.cart-card__color-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.cart-color-swatch {
-    width: 28px;
-    height: 28px;
-    border-radius: 4px;
-    object-fit: cover;   /* sin distorsión */
-    border: 1px solid #ccc;
-}
 
 /* Make each row in the cart the same */
 .cart-items {

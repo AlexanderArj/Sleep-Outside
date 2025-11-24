@@ -42,16 +42,17 @@ function renderCartContents() {
     .insertAdjacentHTML("beforeend", cartTotalElement);
 }
 
+function cartItemTemplate(item) {
+  let selectedColor;
 
-
-function cartItemTemplate(item) {  
-  // Si el usuario seleccionó un color, úsalo. Si no, usa el primero del producto.
-  const selectedColor = item.selectedColor
-    ? item.selectedColor
-    : { 
-        name: item.Colors[0].ColorName,
-        preview: item.Colors[0].ColorPreviewImageSrc
-      };
+  if (item.selectedColor) {
+    selectedColor = item.selectedColor;
+  } else {
+    selectedColor = {
+      name: item.Colors[0].ColorName,
+      preview: item.Colors[0].ColorPreviewImageSrc
+    };
+  }
 
   const newItem = `<li class="cart-card divider">
     <a href="/product_pages/?product=${item.Id}" class="cart-card__image">
@@ -80,11 +81,8 @@ function cartItemTemplate(item) {
     <p class="cart-card__quantity">qty: ${item.quantity}</p>
     <p class="cart-card__price">$${item.FinalPrice}</p>
   </li>`;
-
   return newItem;
 }
-
-
 
 //Event Listener to go to Checkout Page
 document.getElementById("checkout").addEventListener("click", () => {

@@ -68,6 +68,7 @@ function colorOptions(product) {
     container.innerHTML = "";
 
     product.Colors.forEach((color, index) => {
+
         const img = document.createElement('img');
         img.src = color.ColorChipImageSrc;
         img.alt = color.ColorName;
@@ -81,11 +82,8 @@ function colorOptions(product) {
             document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
 
             img.classList.add('selected');
-
             document.getElementById('productImage').src = color.ColorPreviewImageSrc;
-
             document.getElementById('productColor').textContent = color.ColorName;
-
             product.selectedColor = {
                 name: color.ColorName,
                 code: color.ColorCode,
@@ -95,7 +93,7 @@ function colorOptions(product) {
 
         container.appendChild(img);
     });
-
+    
     product.selectedColor = {
         name: product.Colors[0].ColorName,
         code: product.Colors[0].ColorCode,
