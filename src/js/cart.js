@@ -45,22 +45,45 @@ function renderCartContents() {
 
 
 function cartItemTemplate(item) {  
+  // Si el usuario seleccionó un color, úsalo. Si no, usa el primero del producto.
+  const selectedColor = item.selectedColor
+    ? item.selectedColor
+    : { 
+        name: item.Colors[0].ColorName,
+        preview: item.Colors[0].ColorPreviewImageSrc
+      };
+
   const newItem = `<li class="cart-card divider">
-  <a href="/product_pages/?product=${item.Id}" class="cart-card__image">
-    <img
-      src="${item.Images.PrimarySmall}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="/product_pages/?product=${item.Id}">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: ${item.quantity}</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
+    <a href="/product_pages/?product=${item.Id}" class="cart-card__image">
+      <img
+        src="${item.Images.PrimarySmall}"
+        alt="${item.Name}"
+      />
+    </a>
+
+    <a href="/product_pages/?product=${item.Id}">
+      <h2 class="card__name">${item.Name}</h2>
+    </a>
+
+    <div class="cart-card__color-wrapper">
+      <p class="cart-card__color">
+        Color: <strong>${selectedColor.name}</strong>
+      </p>
+
+      <img 
+        class="cart-color-swatch"
+        src="${selectedColor.preview}"
+        alt="${selectedColor.name}"
+      />
+    </div>
+
+    <p class="cart-card__quantity">qty: ${item.quantity}</p>
+    <p class="cart-card__price">$${item.FinalPrice}</p>
+  </li>`;
+
   return newItem;
 }
+
 
 
 //Event Listener to go to Checkout Page
