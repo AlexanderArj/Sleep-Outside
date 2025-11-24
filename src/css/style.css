@@ -293,8 +293,8 @@ button {
 }
 
 .color-image-product {
-    width: 28px;
-    height: 28px;
+    width: 50px;
+    height: auto;
     border-radius: 4px;
     object-fit: cover;
     border: 1px solid #ccc;
